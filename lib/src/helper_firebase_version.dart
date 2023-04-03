@@ -133,4 +133,9 @@ class HelperFirebaseVersion {
     // Set the instance
     _instance = HelperFirebaseVersion._createForTest();
   }
+
+  @visibleForTesting
+  set minBuildRequired(int value) {
+    _minBuildRequired = value;
+  }
 }
