@@ -47,7 +47,7 @@ abstract class HelperFirebaseStorage {
   ///
   /// - [storageReference] is the FirebaseStorage reference, like ref.child("Users").
   /// - [fileNameInStorage] is the name of the file in the storage, like "abc.png".
-  Future<void> deleteFileFromStorage({
+  Future<void> deleteFileFromStorageWithName({
     required Reference storageReference,
     required String? fileNameInStorage
   }) async {
@@ -55,6 +55,24 @@ abstract class HelperFirebaseStorage {
     if(fileNameInStorage!=null) {
       // Set the storage reference
       storageReference = storageReference.child(fileNameInStorage);
+      // Delete the image
+      await storageReference.delete();
+    }
+  }
+
+
+  /// Function to delete a file from the storage.
+  ///
+  /// - [storageReference] is the FirebaseStorage reference, like ref.child("Users").
+  /// - [file] is the file in the storage, like "abc.png".
+  Future<void> deleteFileFromStorage({
+    required Reference storageReference,
+    required File? file
+  }) async {
+    // If the file is not null
+    if(file!=null) {
+      // Set the storage reference
+      storageReference = storageReference.child(file.path.split('/').last);
       // Delete the image
       await storageReference.delete();
     }
