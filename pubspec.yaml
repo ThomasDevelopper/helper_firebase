@@ -1,15 +1,19 @@
 name: helper_firebase
 description: A new Flutter package project.
 version: 0.0.1
-homepage:
 
 environment:
   sdk: '>=2.19.2 <3.0.0'
   flutter: ">=1.17.0"
 
 dependencies:
+  firebase_auth: ^4.4.0
+  firebase_core: ^2.9.0
   flutter:
     sdk: flutter
+  helper:
+    git:
+      url: https://github.com/ThomasDevelopper/Helper.git
 
 dev_dependencies:
   flutter_test:
